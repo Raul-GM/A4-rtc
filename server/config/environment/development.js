@@ -6,5 +6,13 @@ module.exports = {
     clientSecret : 'a8b5d81d892545089d5aaddfb2936e24',
     redirectUri : 'localhost:4200/',
     token: ''
+  },
+  mongo: {
+    uri: 'mongodb://localhost/rtc-dev',
+    options: {
+      db: {
+        safe: true
+      }
+    }
   }
 }

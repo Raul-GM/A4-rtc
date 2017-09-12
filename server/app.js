@@ -2,15 +2,25 @@
 
 import express from 'express';
 const app = express();
+
+import mongo from 'mongodb';
+
 import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import methodOverride from 'method-override';
+mongoose.Promise = require('bluebird');
+import config from './config/environment/development';
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(methodOverride());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(methodOverride());
 
-var router = express.Router();
+
+let router = express.Router();
+
+mongoose.connect(config.mongo.uri, config.mongo.options);
+mongoose.connection.on('error', function(err) {
+  console.error(`MongoDB connection error: ${err}`);
+  process.exit(-1); // eslint-disable-line no-process-exit
+});
 
 router.get('/', function(req, res) {
    res.send("Hello World!!!!!");
@@ -18,13 +28,8 @@ router.get('/', function(req, res) {
 
 app.use(router);
 
-mongoose.createConnection('mongodb://localhost/rtc-dev', function(err, res) {
-  if(err) {
-    console.log('ERROR: connecting to Database. ' + err);
-  }
-  app.listen(3000, function() {
-    require('./routes').default(app);
+app.listen(3000, function() {
+  require('./routes').default(app);
 
-    console.log("Node server running on http://localhost:3000");
-  });
+  console.log("Node server running on http://localhost:3000");
 });

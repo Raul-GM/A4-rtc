@@ -1,22 +1,22 @@
 import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
-
-const datesSchema = new Schema({
-  _id: {type: string},
-  name: {type: string},
-  shows: [{
-    tour: {type:string},
-    date: {type:string},
-    hour: {type:string},
-    city: {type:string},
-    price: {type:string},
-    phone: {type:string},
-    _id: {type:string},
+mongoose.set('debug', true);
+let DateSchema = new mongoose.Schema({
+  _id: String,
+  name: String,
+  image: [],
+  dates: [{
+    tour: String,
+    date: String, //TODO pasar a tipo date
+    hour: String,
+    city: String,
+    price: String,
     place: {
-      place: {type:string},
-      url: {type:string}
-    }
+      name: String,
+      url: String
+    },
+    phone: String
+    // Podríamos poner urls a noticias relacionadas con dichos conciertos
   }]
 });
 
-module.exports = mongoose.model('Dates', datesSchema);
+module.exports = mongoose.model('Date', DateSchema);
