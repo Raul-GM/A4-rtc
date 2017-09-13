@@ -98,11 +98,35 @@ let readMC = () => {
   });
 };
 
+let filterDateBefore = (dates) => {
+  const now = moment();
+  let filteredDates = [];
+  dates.forEach((date) => {
+    if(now.isBefore(date.date)) {
+      filteredDates.push(date);
+    }
+  });
+  return filteredDates;
+}
+
 export function getAllDates(req, res) {
   return new Promise((resolve, reject)=> {
     console.log('VAMOS!!!')
     Date.find().then((dates) => {
-      return resolve(res.status(200).json(dates));
+      let filteredDates = [];
+      dates.forEach((date) => {
+        let resultDates = filterDateBefore(date.dates);
+        if(resultDates.length > 0) {
+          filteredDates.push({
+            _id: date._id,
+            name: date.name,
+            image: date.image,
+            dates: resultDates
+          });
+        }
+      });
+
+      return resolve(res.status(200).json(filteredDates));
     },err => {
       reject(res.status(500).json(err));
     });
