@@ -1,12 +1,6 @@
+@import './../assets/styles/variables';
 
-body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.main-container {
+  min-height: $main-container-height;
+  padding: 1.6rem 1.8rem;
 }
-
-h1 {
-  display: grid;
-}
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFFQTtFQUNFLHFCQUFjO0VBQWQscUJBQWM7RUFBZCxjQUFjO0NBQ2Y7O0FBRUQ7RUFDRSxjQUFjO0NBQ2YiLCJmaWxlIjoiYXBwLmNvbXBvbmVudC5jc3MifQ== */
