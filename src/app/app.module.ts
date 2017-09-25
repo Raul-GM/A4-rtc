@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ListOfDatesComponent } from './components/list-of-dates/list-of-dates.component';
 import { DateItemComponent } from './components/date-item/date-item.component';
+import { BandImagePipe } from './pipes/band-image/band-image.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DateItemComponent } from './components/date-item/date-item.component';
     FooterComponent,
     MenuComponent,
     ListOfDatesComponent,
-    DateItemComponent
+    DateItemComponent,
+    BandImagePipe
   ],
   imports: [
     BrowserModule,

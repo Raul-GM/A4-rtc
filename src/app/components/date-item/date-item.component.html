@@ -1,3 +1,9 @@
-<p>
-  date-item works!
-</p>
+<div>
+  <img [src]="date.image[0][1] | bandImage" [alt]="date.name">
+  <div class="info">
+    <p>{{date.name}}</p>
+    <ul>
+      <li *ngFor="let concertDate of date.dates">{{concertDate.city}} {{concertDate.date}} {{concertDate.hour}}</li>
+    </ul>
+  </div>
+</div>

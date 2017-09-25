@@ -1,5 +1,5 @@
 <h2>Agenda de conciertos</h2>
 
 <div class="list-wrapper">
-  
+  <app-date-item *ngFor="let date of dates" [date]="date"></app-date-item>
 </div>
