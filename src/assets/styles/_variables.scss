@@ -1,3 +1,11 @@
+$aleo-bold: 'Aleo Bold';
+$aleo-regular-italic: 'Aleo Regular Italic';
+$aleo-light: 'Aleo Light';
+$aleo-regular: 'Aleo Regular';
+$device-big-desktop: 1800px;
+$device-desktop: 1200px;
+$device-tablet-landscape: 900px;
+$device-table-portrait: 600px;
 $navbar-height: 90px;
 $footer-height: 45px;
 $main-container-height: calc(100vh - #{$navbar-height} - #{$footer-height});

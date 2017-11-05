@@ -12,8 +12,18 @@ export class ListOfDatesComponent implements OnInit {
   ngOnInit() {
     this.datesService.getAllDates().subscribe(dates => {
       console.log('====>', dates);
-      this.dates = dates;
+
+      this.dates = dates.sort(this.compare);
     });
   }
 
+  compare = (a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  }
 }

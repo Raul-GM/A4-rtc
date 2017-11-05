@@ -1,0 +1,9 @@
+@import './../../../assets/styles/variables';
+
+@media (min-width: $device-desktop) {
+  .list-wrapper {
+    display: grid;
+    grid-gap: 0 15px;
+    grid-template-columns: repeat(auto-fit, minmax(calc(50% - 30px), 1fr));
+  }
+}

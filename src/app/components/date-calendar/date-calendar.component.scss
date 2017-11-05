@@ -1,7 +1,11 @@
+@import './../../../assets/styles/variables';
+
+$padding-within-calendar: 3px;
 .date-calendar {
   align-items: center;
   background-color: white;
   border: 1px solid black;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   width: 80px;
@@ -11,14 +15,20 @@
   }
   .month {
     font-size: 0.9rem;
+    padding-top: $padding-within-calendar;
   }
   .day {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-family: $aleo-bold;
     line-height: 0.9;
+  }
+  .year {
+    font-size: 0.75rem;
+    padding-bottom: $padding-within-calendar;
   }
   .city {
     background-color: #d32f2f;
+    border-radius: 1px 1px 0 0;
     color: #ffffff;
     line-height: 1.4;
     overflow: hidden;
