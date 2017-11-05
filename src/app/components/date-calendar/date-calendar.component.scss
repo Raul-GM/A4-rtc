@@ -1,0 +1,31 @@
+.date-calendar {
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  .month,
+  .year {
+    line-height: 1.2;
+  }
+  .month {
+    font-size: 0.9rem;
+  }
+  .day {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 0.9;
+  }
+  .city {
+    background-color: #d32f2f;
+    color: #ffffff;
+    line-height: 1.4;
+    overflow: hidden;
+    padding: 0 5px;
+    text-align: center;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+  }
+}

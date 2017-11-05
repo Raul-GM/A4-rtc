@@ -14,6 +14,9 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ListOfDatesComponent } from './components/list-of-dates/list-of-dates.component';
 import { DateItemComponent } from './components/date-item/date-item.component';
 import { BandImagePipe } from './pipes/band-image/band-image.pipe';
+import { DateCalendarComponent } from './components/date-calendar/date-calendar.component';
+import { CityPipe } from './pipes/calendar/city.pipe';
+import { SpanishMonthPipe } from './pipes/calendar/spanish-month.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { BandImagePipe } from './pipes/band-image/band-image.pipe';
     MenuComponent,
     ListOfDatesComponent,
     DateItemComponent,
-    BandImagePipe
+    BandImagePipe,
+    DateCalendarComponent,
+    CityPipe,
+    SpanishMonthPipe
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,6 @@
+<div class="date-calendar">
+  <span [title]="city" class="city">{{city | titlecase}}</span>
+  <span class="month">{{date | date:'LLLL' | spanishMonth}}</span>
+  <span class="day">{{date | date:'dd'}}</span>
+  <span class="year">{{date | date:'yyyy'}}</span>
+</div>
