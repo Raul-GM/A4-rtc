@@ -1,4 +1,5 @@
 @import './../../../assets/styles/variables';
+@import './../../../assets/styles/colors';
 
 $padding-within-calendar: 3px;
 .date-calendar {
@@ -27,7 +28,7 @@ $padding-within-calendar: 3px;
     padding-bottom: $padding-within-calendar;
   }
   .city {
-    background-color: #d32f2f;
+    background-color: $calendar-header;
     border-radius: 1px 1px 0 0;
     color: #ffffff;
     line-height: 1.4;

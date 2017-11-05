@@ -3,3 +3,12 @@ body {
   color: $text-color;
   font-family: $aleo-regular;
 }
+
+a {
+  color: $alternative-color;
+  text-decoration: underline;
+  transition: all 0.3s ease-in;
+  &:hover {
+    color: $text-color;
+  }
+}

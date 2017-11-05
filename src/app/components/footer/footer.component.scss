@@ -1,6 +1,10 @@
 @import './../../../assets/styles/variables';
+@import './../../../assets/styles/colors';
 
 .footer-container {
-  background: rgba(66, 106, 66, .7);
+  align-items: center;
+  background: $footer-background-color;
+  display: flex;
   height: $footer-height;
+  justify-content: center;
 }
