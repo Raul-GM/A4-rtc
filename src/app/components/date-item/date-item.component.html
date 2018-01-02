@@ -1,19 +1,22 @@
 <div class="date">
-  <div class="image" [ngStyle]="{'background-image': 'url(' + (date.image[0][1] | bandImage) + ')'}">
-    <!-- <img [src]="date.image[0][1] | bandImage" [alt]="date.name"> -->
-  </div>
-  <div class="info">
-    <p><label>{{date.name}}</label></p>
-    <ul>
-      <li *ngFor="let concertDate of date.dates">
-        <app-date-calendar
-          [hour]="concertDate.hour"
-          [city]="concertDate.city"
-          [date]="concertDate.date">
-        </app-date-calendar>
-        <!-- {{concertDate.city}} -->
-        <!-- {{concertDate.date}} {{concertDate.hour}} -->
-      </li>
-    </ul>
-  </div>
+  <h1>XXXX {{extraclass}}</h1>
+  <a [routerLink]="['/date',date._id]">
+    <div class="image" [ngStyle]="{'background-image': 'url(' + (date.image[0][1] | bandImage) + ')'}">
+      <!-- <img [src]="date.image[0][1] | bandImage" [alt]="date.name"> -->
+    </div>
+    <div class="info">
+      <p><label>{{date.name}}</label></p>
+      <ul>
+        <li *ngFor="let concertDate of date.dates">
+          <app-date-calendar
+            [hour]="concertDate.hour"
+            [city]="concertDate.city"
+            [date]="concertDate.date">
+          </app-date-calendar>
+          <!-- {{concertDate.city}} -->
+          <!-- {{concertDate.date}} {{concertDate.hour}} -->
+        </li>
+      </ul>
+    </div>
+  </a>
 </div>

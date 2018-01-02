@@ -5,6 +5,7 @@ let controller = require('./date.controller.js');
 let router = express.Router();
 
 router.get('/', controller.getAllDates);
+router.get('/:id', controller.getDate);
 router.get('/load/mc', controller.loadMC);
 router.get('/images/update', controller.updateAllImages);
 // router.get('/load/rb', controller.loadRB);

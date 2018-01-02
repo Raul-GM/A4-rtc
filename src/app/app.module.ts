@@ -17,6 +17,7 @@ import { BandImagePipe } from './pipes/band-image/band-image.pipe';
 import { DateCalendarComponent } from './components/date-calendar/date-calendar.component';
 import { CityPipe } from './pipes/calendar/city.pipe';
 import { SpanishMonthPipe } from './pipes/calendar/spanish-month.pipe';
+import { DateDetailComponent } from './components/date-detail/date-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SpanishMonthPipe } from './pipes/calendar/spanish-month.pipe';
     BandImagePipe,
     DateCalendarComponent,
     CityPipe,
-    SpanishMonthPipe
+    SpanishMonthPipe,
+    DateDetailComponent
   ],
   imports: [
     BrowserModule,
