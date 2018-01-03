@@ -1,5 +1,8 @@
 @import './../../../assets/styles/variables';
 
+h3 {
+  text-align: center;
+}
 @media (min-width: $device-desktop) {
   .list-wrapper {
     display: grid;
