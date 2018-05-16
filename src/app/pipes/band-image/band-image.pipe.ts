@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class BandImagePipe implements PipeTransform {
 
   transform(imageUrl:any):string {
-    console.log('==>', imageUrl);
     if(imageUrl) {
       return imageUrl.url;
     }

@@ -8,14 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DateItemComponent implements OnInit {
   @Input()
   date:Object = {};
+  @Input()
   extraclass:String = '';
 
   constructor() {
-    console.log('!!!!!!!>', this.extraclass)
-    
+    console.log('Constructor')
   }
-
+  
   ngOnInit() {
+
   }
 
 }

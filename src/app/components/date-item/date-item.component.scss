@@ -7,12 +7,12 @@ $image-gap: 25px;
 $label-desktop-angle: 8px;
 $label-desktop-height: 78px;
 img {
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 p {
   text-align: center;
-  label {
+  .date-title {
     align-self: center;
     background: hsla(0, 0%, 0%, 0.81);
     display: inline-flex;
@@ -50,7 +50,37 @@ p {
   justify-items: center;
   padding: 0 10px 10px;
 }
-
+.info ul.detail {
+  display: flex;
+  flex-direction: column;
+}
+.info ul.detail li{
+  display: flex;
+  padding-bottom: 10px;
+}
+.extra-info {
+  display: none;
+}
+.link-detail {
+  cursor: default;
+}
+.detail .extra-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0 5px 10px;
+  label {
+    font-style: italic;
+  }
+  p {
+    text-align: left;
+    text-transform: capitalize;
+    width: 100%;
+  }
+  .tour {
+    font-weight: bold;
+  }
+}
 @media (min-width: $device-table-portrait) {
   .date {
     flex-direction: row;

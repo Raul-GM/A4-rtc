@@ -8,7 +8,7 @@ import { DatesService } from './../../services/Dates/dates.service';
   styleUrls: ['./date-detail.component.scss']
 })
 export class DateDetailComponent implements OnInit {
-  private date:any = {};
+  public date:any = {};
   constructor(private router:Router, private activatedRoute:ActivatedRoute, private datesService:DatesService) {
     this.activatedRoute.params.subscribe( params=> {
       const id = params.id;
