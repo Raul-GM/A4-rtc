@@ -1,8 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 import { ListOfDatesComponent } from './components/list-of-dates/list-of-dates.component';
 import { DateDetailComponent } from './components/date-detail/date-detail.component';
+import { AdminComponent } from './components/admin/admin.component';
 const app_routes: Routes = [
   { path: '', component: ListOfDatesComponent },
+  { path: 'admin', component: AdminComponent },
   { path: 'date/:id', component: DateDetailComponent },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];

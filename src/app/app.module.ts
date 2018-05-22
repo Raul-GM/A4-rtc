@@ -19,6 +19,7 @@ import { CityPipe } from './pipes/calendar/city.pipe';
 import { SpanishMonthPipe } from './pipes/calendar/spanish-month.pipe';
 import { DateDetailComponent } from './components/date-detail/date-detail.component';
 import { BackbarComponent } from './components/backbar/backbar.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BackbarComponent } from './components/backbar/backbar.component';
     CityPipe,
     SpanishMonthPipe,
     DateDetailComponent,
-    BackbarComponent
+    BackbarComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
