@@ -26,4 +26,9 @@ export class AdminComponent implements OnInit {
   handleCloseModal = arg => {
     this.showModal = !arg
   }
+  deleteAll = () => {
+    this.adminService.deleteAll().subscribe(status => {
+      if(status === 200) this.showModal = true
+    })
+  }
 }

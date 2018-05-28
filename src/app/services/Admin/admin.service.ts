@@ -15,4 +15,8 @@ export class AdminService {
     return this.http.request('http://localhost:3000/api/date/images/update')
       .map(res => res.status)
   }
+  deleteAll() {
+    return this.http.delete('http://localhost:3000/api/date/', {})
+      .map(res => res.status)
+  }
 }
