@@ -1,6 +1,7 @@
 <div>
-  <app-modal [showModal]="showModal" text="Operación realizada correctamente"></app-modal>
+  <app-modal [showModal]="showModal" text="Operación realizada correctamente" (closeModal)="handleCloseModal($event)"></app-modal>
   <section>
     <Button (click)="loadMetalcry()">Cargar MetalCry</Button>
+    <Button (click)="updateImages()">Actualizar Imágenes</Button>
   </section>
 </div>

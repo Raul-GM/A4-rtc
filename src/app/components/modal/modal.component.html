@@ -1,3 +1,4 @@
-<p [ngClass]="{'visible': showModal}">
-  modal works!
-</p>
+<div [ngClass]="{'visible': showModal}">
+  <span>{{text}}</span>
+  <button (click)="close()">Aceptar</button>
+</div>

@@ -11,4 +11,8 @@ export class AdminService {
     return this.http.request('http://localhost:3000/api/date/load/mc')
       .map(res => res.status)
   }
+  updateAllImages() {
+    return this.http.request('http://localhost:3000/api/date/images/update')
+      .map(res => res.status)
+  }
 }

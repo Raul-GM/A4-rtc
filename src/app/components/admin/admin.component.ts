@@ -18,4 +18,12 @@ export class AdminComponent implements OnInit {
       if(status === 200) this.showModal = true
     })
   }
+  updateImages = () => {
+    this.adminService.updateAllImages().subscribe(status => {
+      if(status === 200) this.showModal = true
+    })
+  }
+  handleCloseModal = arg => {
+    this.showModal = !arg
+  }
 }
