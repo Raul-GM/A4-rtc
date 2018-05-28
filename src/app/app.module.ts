@@ -7,6 +7,7 @@ import { app_routing } from './app.routes';
 
 //Services
 import { DatesService } from './services/Dates/dates.service';
+import { AdminService } from './services/Admin/admin.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -20,6 +21,7 @@ import { SpanishMonthPipe } from './pipes/calendar/spanish-month.pipe';
 import { DateDetailComponent } from './components/date-detail/date-detail.component';
 import { BackbarComponent } from './components/backbar/backbar.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AdminComponent } from './components/admin/admin.component';
     SpanishMonthPipe,
     DateDetailComponent,
     BackbarComponent,
-    AdminComponent
+    AdminComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { AdminComponent } from './components/admin/admin.component';
     HttpModule
   ],
   providers: [
-    DatesService
+    DatesService,
+    AdminService,
   ],
   bootstrap: [AppComponent]
 })

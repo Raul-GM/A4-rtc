@@ -1,0 +1,16 @@
+@import './../../../assets/styles/colors';
+.visible {
+  opacity: 1;
+}
+p {
+  background-color: $date-card-background;
+  bottom: 0;
+  height: 50vh;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60vw;
+  opacity: 0;
+}
