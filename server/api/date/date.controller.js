@@ -152,19 +152,21 @@ export function deleteAll(req, res) {
     );
   });
 }
-
+function isDateDuplicated(allDates, date) {
+  return allDates.find(dateToFind => date.isSame(dateToFind.date))
+}
 export function loadMC(req, res) {
   console.log('==> Cargamos todas las fechas');
   return new Promise((resolve, reject) => {
     let promises = [];
     readMC().then((dates)=> {
-      dates.forEach((d)=> {
+      dates.forEach((d, i)=> {
         findGroup(d.name).then(
           (group) => {
             if(!group) promises.push(Date.create(d)); //Si no existe el grupo en la base de datos creamos una nueva entrada completa
             else {
-              d.dates.forEach((date)=> {
-                if(_.find(group.dates, { date: date.date }) === undefined) { //Buscamos si la fecha ya está creada. Si no lo está la añadimos
+              d.dates.forEach( (date, j) => {
+                if(!isDateDuplicated(group.dates, date.date)) {
                   promises.push(Date.findOneAndUpdate({_id: d._id}, {$push: { dates: date }}, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec());
                 }
               });
