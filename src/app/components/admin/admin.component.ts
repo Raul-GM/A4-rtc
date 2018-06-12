@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from './../../services/Admin/admin.service'
+import { AdminService } from './../../services/Admin/admin.service';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -7,10 +8,12 @@ import { AdminService } from './../../services/Admin/admin.service'
 })
 export class AdminComponent implements OnInit {
   public showModal:boolean = false;
+  public groups:any[] = [];
 
   constructor(private adminService:AdminService) { }
 
   ngOnInit() {
+    this.adminService.getAllGroups().subscribe(groups => this.groups = groups);
   }
 
   loadMetalcry = () => {

@@ -12,10 +12,7 @@ export class DateDetailComponent implements OnInit {
   constructor(private router:Router, private activatedRoute:ActivatedRoute, private datesService:DatesService) {
     this.activatedRoute.params.subscribe( params=> {
       const id = params.id;
-      this.datesService.getDate(id).subscribe(date => {
-        console.log('=>=>=>=>=>', date)
-        this.date = date;
-      });
+      this.datesService.getDate(id).subscribe(date => this.date = date);
     })
   }
 

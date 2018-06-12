@@ -108,7 +108,16 @@ let filterDateBefore = (dates) => {
   });
   return filteredDates;
 }
-
+export function getAllGroups(req, res) {
+  return new Promise((resolve, reject) => {
+    Date.find()
+      .then(groups => {
+        return resolve(res.status(200).json(groups))
+      },err => {
+        reject(res.status(500).json(err));
+      });
+  });
+}
 export function getAllDates(req, res) {
   return new Promise((resolve, reject)=> {
     Date.find().then((dates) => {

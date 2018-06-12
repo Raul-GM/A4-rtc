@@ -27,6 +27,8 @@ import { DateDetailComponent } from './components/date-detail/date-detail.compon
 import { BackbarComponent } from './components/backbar/backbar.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { GroupListComponent } from './components/admin/group-list/group-list.component';
+import { SortPipe } from './pipes/lists/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { ModalComponent } from './components/modal/modal.component';
     BackbarComponent,
     AdminComponent,
     ModalComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    GroupListComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

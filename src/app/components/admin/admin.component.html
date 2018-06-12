@@ -5,4 +5,7 @@
     <Button (click)="updateImages()">Actualizar Imágenes</Button>
     <Button (click)="deleteAll()">Borrar Todo</Button>
   </section>
+  <app-group-list
+    *ngFor="let group of groups | sort"
+    [group]="group"></app-group-list>
 </div>
