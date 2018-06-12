@@ -1,10 +1,8 @@
-<div class="date">
-  <a [routerLink]="['/date',date._id]" [class]="extraclass ? 'link-' + extraclass : ''">
-    <div class="image" [ngStyle]="{'background-image': 'url(' + (date.image[0][1] | bandImage) + ')'}">
-      <!-- <img [src]="date.image[0][1] | bandImage" [alt]="date.name"> -->
-    </div>
+<div [class]="extraclass ? 'date wrapper-' + extraclass : 'date'">
+  <a [routerLink]="['/date',date._id]" [class]="extraclass ? 'date-container link-' + extraclass : 'date-container'">
+    <div class="image" [ngStyle]="{'background-image': 'url(' + (date.image[0][1] | bandImage) + ')'}"></div>
     <div class="info">
-      <p><label class="date-title">{{date.name}}</label></p>
+      <p class="date-title-wrapper"><label class="date-title">{{date.name | capitalize}}</label></p>
       <ul [class]="extraclass">
         <li *ngFor="let concertDate of date.dates">
           <app-date-calendar

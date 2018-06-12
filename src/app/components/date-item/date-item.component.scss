@@ -2,15 +2,20 @@
 @import './../../../assets/styles/variables';
 
 $date-card-height: 250px;
+$date-card-height-landscape: 310px;
 $date-card-image-width: 270px;
+$date-card-image-width-landscape: 340px;
+$date-card-image-width-desktop: 290px;
+$date-card-image-width-desktop-detail: 400px;
 $image-gap: 25px;
 $label-desktop-angle: 8px;
+$label-desktop-angle-detail: 5.9px;
 $label-desktop-height: 78px;
 img {
   height: 100%;
   width: 100%;
 }
-p {
+.date-title-wrapper {
   text-align: center;
   .date-title {
     align-self: center;
@@ -28,7 +33,8 @@ p {
   background-color: $date-card-background;
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
+  margin: 10px 0 20px;
+  height: calc(100% - 20px);
 }
 .image {
   background-position: center 30%;
@@ -41,6 +47,10 @@ p {
   justify-content: center;
   max-height: 140px;
   width: 100%;
+}
+.link-detail .image {
+  height: 170px;
+  max-height: 170px;
 }
 .info ul{
   color: $text-color-alternative;
@@ -82,17 +92,36 @@ p {
   }
 }
 @media (min-width: $device-table-portrait) {
+  .wrapper-detail {
+    margin: 0px 5rem;
+    .detail {
+      margin: 0 14px;
+    }
+  }
+  .link-detail .image {
+    height: 210px;
+    max-height: 210px;
+  }
+}
+@media (min-width: $device-tablet-landscape) {
   .date {
     flex-direction: row;
     height: $date-card-height;
+    .date-container  {
+      display: flex;
+      width: 100%;
+    }
     .image {
       clip-path: polygon(0 0, 100% 0, calc(100% - #{$image-gap}) calc(100% - 0px), 0 100%);
       min-height: $date-card-height;
-      width: $date-card-image-width;
+      width: $date-card-image-width-landscape;
+    }
+    .date-title {
+      font-size: 1.7rem;
     }
     .info {
       position: relative;
-      width: calc(100% - #{$date-card-image-width});
+      width: calc(100% - #{$date-card-image-width-landscape});
       ul {
         align-items: center;
         grid-gap: 5px;
@@ -100,20 +129,77 @@ p {
         overflow-y: auto;
         padding: 15px 10px;
       }
-    }
-    p {
-      left: calc(-#{$date-card-image-width} - 10px);
-      position: absolute;
-      top: calc(#{$date-card-height} - #{$label-desktop-height} + 21px);
-      width:calc(#{$date-card-image-width - #{$image-gap}});
-      label {
-        clip-path: polygon(0 0, 100% 0, calc(100% - #{$label-desktop-angle}) calc(100% - 0px), 0 100%);
-        height: $label-desktop-height;
-        line-height: 1.2;
-        padding: 10px 20px;
-        text-align: left;
-        width: calc(100% + #{$label-desktop-angle});
+      ul li {
+        padding-bottom: 10px;
       }
+    }
+    .date-title-wrapper {
+      left: calc(-#{$date-card-image-width-landscape} - 10px);
+      position: absolute;
+      top: calc(#{$date-card-height-landscape} - #{$label-desktop-height} - 40px);
+      width:calc(#{$date-card-image-width-landscape - #{$image-gap}});
+    }
+    .date-title {
+      clip-path: polygon(0 0, 100% 0, calc(100% - #{$label-desktop-angle}) calc(100% - 0px), 0 100%);
+      height: $label-desktop-height;
+      line-height: 1.2;
+      padding: 10px 20px;
+      text-align: left;
+      width: calc(100% + #{$label-desktop-angle});
+    }
+  }
+  .wrapper-detail {
+    height: $date-card-height-landscape;
+    margin: 0;
+    .image {
+      min-height: $date-card-height-landscape;
+    }
+    .date-title-wrapper {
+      top: calc(#{$date-card-height-landscape} - #{$label-desktop-height} + 20px);
+    }
+    li {
+      width: 100%;
+    }
+    .extra-info {
+      flex: 1;
+    }
+    .extra-info p{
+      left: 0;
+    }
+  }
+}
+
+
+@media (min-width: $device-desktop) {
+  .date {
+    .image {
+      width: $date-card-image-width-desktop;
+    }
+    .info {
+      width: calc(100% - #{$date-card-image-width-desktop});
+    }
+    .date-title-wrapper {
+      left: calc(-#{$date-card-image-width-desktop} - 10px);
+      width:calc(#{$date-card-image-width-desktop - #{$image-gap}});
+    }
+  }
+  .wrapper-detail {
+    margin: 0 auto;
+    width: $wrapper-detail-width;
+    .image {
+      min-height: $date-card-height-landscape;
+      width: $date-card-image-width-desktop-detail;
+    }
+    .info {
+      width: calc(100% - #{$date-card-image-width-desktop-detail});
+    }
+    .date-title-wrapper {
+      left: calc(-#{$date-card-image-width-desktop-detail} - 10px);
+      width:calc(#{$date-card-image-width-desktop-detail - #{$image-gap}});
+    }
+    .date-title {
+      clip-path: polygon(0 0, 100% 0, calc(100% - #{$label-desktop-angle-detail}) calc(100% - 0px), 0 100%);
+      width: calc(100% + 6px);
     }
   }
 }

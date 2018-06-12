@@ -4,3 +4,9 @@
   min-height: $main-container-height;
   padding: 1.6rem 1.8rem;
 }
+
+@media (min-width: $device-tablet-landscape) {
+  .main-container {
+    padding: 2rem 7rem;
+  }
+}
