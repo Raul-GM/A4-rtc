@@ -78,7 +78,7 @@ let readMC = () => {
           });
         } else {
           group = {
-            _id: getField('Grupo', article.content),
+            _id: getField('Grupo', article.content).split(' ').join(''),
             name: getField('Grupo', article.content),
             dates: [{
               tour: getField('Gira', article.content),
@@ -193,7 +193,23 @@ export function loadMC(req, res) {
     });
   });
 }
-
+export function updateGroup(req, res) {
+  console.log('==> Actualizamos grupo', req.params, req.body, req.query)
+  const { id } = req.params;
+  return new Promise((resolve, reject) => {
+    console.log(')>', req.query.name)
+    Date.findOneAndUpdate({
+      _id: id},
+      {$set: { name: req.query.name }},
+      {new: false, upsert: true, setDefaultsOnInsert: true, runValidators: true})
+        .exec().then(
+          ()=> { return resolve(res.status(200).json()); },
+          (err)=> {
+            console.log('!!!!!!!>', err);
+            return reject(res.status(500).json(err));
+          })
+  })
+}
 export function updateAllImages(req, res) {
   console.log('==> Actualizamos todas las imágenes');
   return new Promise((resolve, reject) => {

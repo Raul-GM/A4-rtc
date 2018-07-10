@@ -10,11 +10,6 @@ export class DateItemComponent implements OnInit {
   date:Object = {};
   @Input()
   extraclass:String = '';
-
-  constructor() {
-    console.log('Constructor')
-  }
-  
   ngOnInit() {
 
   }

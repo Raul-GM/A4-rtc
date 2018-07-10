@@ -1,0 +1,16 @@
+.group-detail {
+  display: flex;
+}
+.group-detail-image-wrapper {
+  flex: 1;
+  padding: 0 20px;
+}
+.group-detail-image-wrapper-image {
+  width: 100%;
+}
+.group-detail-form {
+  flex: 1;
+}
+.group-detail-form-label {
+  padding-right: 10px;
+}

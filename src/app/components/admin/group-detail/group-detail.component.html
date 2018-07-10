@@ -1,0 +1,22 @@
+<div class="group-detail">
+  <section class="group-detail-image-wrapper">
+    <img *ngIf="group.image" class="group-detail-image-wrapper-image"
+      [src]="group.image[0][1] | bandImage"
+      [alt]="group.name" />
+  </section>
+  <form class="group-detail-form" #form="ngForm" (ngSubmit)="saveGroup(form)">
+    <p>
+      <input class="form-control"
+             type="text"
+             placeholder="Nombre"
+             name="name"
+             [ngModel]="group.name"
+             required
+             minlength="5"
+             #name="ngModel">
+    </p>
+    <p>
+      <button type="submit">Guardar</button>
+    </p>
+  </form>
+</div>

@@ -13,7 +13,10 @@ export class AdminComponent implements OnInit {
   constructor(private adminService:AdminService) { }
 
   ngOnInit() {
-    this.adminService.getAllGroups().subscribe(groups => this.groups = groups);
+    this.adminService.getAllGroups().subscribe(groups => {
+      console.log('>', groups)
+      this.groups = groups
+    });
   }
 
   loadMetalcry = () => {

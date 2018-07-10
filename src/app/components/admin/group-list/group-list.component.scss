@@ -1,0 +1,17 @@
+.group-list-item {
+  align-items: center;
+  display: flex;
+  padding: 5px 0;
+}
+
+.group-list-item-image {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.group-list-item-group {
+  font-size: 1.4rem;
+  padding-left: 16px;
+  pointer-events: none;
+}
