@@ -11,22 +11,19 @@ import { AdminService } from './../../../services/Admin/admin.service';
 export class GroupDetailComponent implements OnInit {
   public groupId:String = '';
   public group:Object = {
-    name: ''
+    name: '',
+    visible: true,
   };
 
   constructor(private router:Router, private activatedRoute:ActivatedRoute, private adminService:AdminService) {
     this.activatedRoute.params.subscribe( params=> {
       this.groupId = params.id;
-      this.adminService.getGroup(this.groupId).subscribe(group => {
-        console.log('???', group)
-        return this.group = group
-      });
+      this.adminService.getGroup(this.groupId).subscribe(group => this.group = group);
     })
   }
   saveGroup (form:NgForm) {
-    console.log('MMMMMMM', this.groupId)
     this.adminService.updateGroup(this.groupId, form.value).subscribe(res => {
-      console.log('O____o')
+      console.log('==>', res)
     })
   }
   ngOnInit() {}

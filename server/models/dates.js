@@ -2,8 +2,9 @@ import mongoose from 'mongoose';
 mongoose.set('debug', true);
 let DateSchema = new mongoose.Schema({
   _id: String,
-  name: String,
   image: [],
+  name: String,
+  visible: Boolean,
   dates: [{
     tour: String,
     date: String, //TODO pasar a tipo date

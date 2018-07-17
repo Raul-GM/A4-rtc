@@ -51,7 +51,10 @@ let findGroup = (name) => {
     );
   });
 };
-
+const replaceSpecialCharacters = value => {
+  value = value.replace('&#038;','and');
+  return value;
+}
 /*
 * Leemos la web de Metal Cry
 * */
@@ -78,8 +81,9 @@ let readMC = () => {
           });
         } else {
           group = {
-            _id: getField('Grupo', article.content).split(' ').join(''),
+            _id: replaceSpecialCharacters(getField('Grupo', article.content).split(' ').join('')),
             name: getField('Grupo', article.content),
+            visible: true,
             dates: [{
               tour: getField('Gira', article.content),
               date: getField('Fecha', article.content),
@@ -102,9 +106,7 @@ let filterDateBefore = (dates) => {
   const now = moment();
   let filteredDates = [];
   dates.forEach((date) => {
-    if(now.isBefore(date.date)) {
-      filteredDates.push(date);
-    }
+    if(now.isBefore(date.date)) filteredDates.push(date);
   });
   return filteredDates;
 }
@@ -121,8 +123,10 @@ export function getAllGroups(req, res) {
 export function getAllDates(req, res) {
   return new Promise((resolve, reject)=> {
     Date.find().then((dates) => {
+      console.log('???', dates);
       let filteredDates = [];
       dates.forEach((date) => {
+        if(!date.visible) return false
         let resultDates = filterDateBefore(date.dates);
         if(resultDates.length > 0) {
           filteredDates.push({
@@ -194,13 +198,15 @@ export function loadMC(req, res) {
   });
 }
 export function updateGroup(req, res) {
-  console.log('==> Actualizamos grupo', req.params, req.body, req.query)
+  console.log('==> Actualizamos grupo ', req.params.id)
   const { id } = req.params;
   return new Promise((resolve, reject) => {
-    console.log(')>', req.query.name)
     Date.findOneAndUpdate({
       _id: id},
-      {$set: { name: req.query.name }},
+      {$set: {
+        name: req.query.name,
+        visible: req.query.visible === 'true',
+      }},
       {new: false, upsert: true, setDefaultsOnInsert: true, runValidators: true})
         .exec().then(
           ()=> { return resolve(res.status(200).json()); },

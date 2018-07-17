@@ -6,9 +6,9 @@
   </section>
   <form class="group-detail-form" #form="ngForm" (ngSubmit)="saveGroup(form)">
     <p>
+      <label>Nombre: </label>
       <input class="form-control"
              type="text"
-             placeholder="Nombre"
              name="name"
              [ngModel]="group.name"
              required
@@ -16,6 +16,15 @@
              #name="ngModel">
     </p>
     <p>
+      <p>
+        <label>Visible: </label>
+        <input
+          type="checkbox"
+          name="visible"
+          #name="ngModel"
+          [ngModel]="group.visible">
+      </p>
+      <p>
       <button type="submit">Guardar</button>
     </p>
   </form>
