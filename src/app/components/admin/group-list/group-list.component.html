@@ -1,6 +1,10 @@
 <li>
   <a [routerLink]="['/admin/group',group._id]" class="group-list-item">
-    <img class="group-list-item-image" [src]="group.image[0][2] | bandImage" [alt]="group.name" />
+    <!-- <img class="group-list-item-image" [src]="group.image.small | bandImage" [alt]="group.name" /> -->
+    <div
+      class="group-list-item-image"
+      [ngStyle]="{'background-image': 'url(' + (group.image.small | bandImage) + ')'}">
+    </div>
     <label class="group-list-item-group">{{group.name | capitalize}}</label>
   </a>
 </li>

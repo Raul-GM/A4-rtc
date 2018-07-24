@@ -8,6 +8,10 @@ export class AdminService {
   group:Object = {
     _id: '',
     name: '',
+    visible: true,
+    image: {
+      big: '',
+    }
   };
   constructor(private http:Http) { }
 

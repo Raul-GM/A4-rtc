@@ -51,8 +51,8 @@ let findGroup = (name) => {
     );
   });
 };
-const replaceSpecialCharacters = value => {
-  value = value.replace('&#038;','and');
+const replaceSpecialCharacters = (value, specialCharecter) => {
+  value = value.replace('&#038;',specialCharecter ? '&' : 'and');
   return value;
 }
 /*
@@ -67,7 +67,7 @@ let readMC = () => {
     let found = {};
     feed(mcConcerts, (err, articles) => {
       articles.forEach((article)=> {
-        name = {name: getField('Grupo', article.content)};
+        name = {name: replaceSpecialCharacters(getField('Grupo', article.content), true),};
         found =  _.find(groups, name);
         if(found !== undefined) {
           found.dates.push({
@@ -82,7 +82,7 @@ let readMC = () => {
         } else {
           group = {
             _id: replaceSpecialCharacters(getField('Grupo', article.content).split(' ').join('')),
-            name: getField('Grupo', article.content),
+            name: replaceSpecialCharacters(getField('Grupo', article.content), true),
             visible: true,
             dates: [{
               tour: getField('Gira', article.content),
@@ -199,6 +199,7 @@ export function loadMC(req, res) {
 }
 export function updateGroup(req, res) {
   console.log('==> Actualizamos grupo ', req.params.id)
+  console.log('?????', req.query);
   const { id } = req.params;
   return new Promise((resolve, reject) => {
     Date.findOneAndUpdate({
@@ -206,6 +207,10 @@ export function updateGroup(req, res) {
       {$set: {
         name: req.query.name,
         visible: req.query.visible === 'true',
+        image: {
+          big: req.query.bigImage,
+          small: req.query.smallImage,
+        }
       }},
       {new: false, upsert: true, setDefaultsOnInsert: true, runValidators: true})
         .exec().then(
@@ -229,9 +234,13 @@ export function updateAllImages(req, res) {
         (images) => {
           let imagesPromises = [];
           images.forEach((image, index)=> {
-            let date = dates[index];
-            // date.image = image;
-            promises.push(Date.findOneAndUpdate({_id: date._id}, {$push: { image: image }}, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec());
+            const date = dates[index];
+            const lastImage = image.length - 1;
+            const imageToUpdate = {
+              big: image[0] ? image[0].url : '',
+              small: image[lastImage] ? image[lastImage].url : '',
+            };
+            promises.push(Date.findOneAndUpdate({_id: date._id}, {$set: { image: imageToUpdate }}, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec());
 
           });
           Promise.all(imagesPromises).then(

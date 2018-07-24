@@ -13,6 +13,10 @@ export class GroupDetailComponent implements OnInit {
   public group:Object = {
     name: '',
     visible: true,
+    image: {
+      big: '',
+      small: '',
+    }
   };
 
   constructor(private router:Router, private activatedRoute:ActivatedRoute, private adminService:AdminService) {
@@ -22,6 +26,7 @@ export class GroupDetailComponent implements OnInit {
     })
   }
   saveGroup (form:NgForm) {
+    console.log('1111', form.value)
     this.adminService.updateGroup(this.groupId, form.value).subscribe(res => {
       console.log('==>', res)
     })

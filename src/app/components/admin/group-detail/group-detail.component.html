@@ -1,22 +1,36 @@
 <div class="group-detail">
-  <section class="group-detail-image-wrapper">
-    <img *ngIf="group.image" class="group-detail-image-wrapper-image"
-      [src]="group.image[0][1] | bandImage"
-      [alt]="group.name" />
-  </section>
+
   <form class="group-detail-form" #form="ngForm" (ngSubmit)="saveGroup(form)">
-    <p>
-      <label>Nombre: </label>
-      <input class="form-control"
-             type="text"
-             name="name"
-             [ngModel]="group.name"
-             required
-             minlength="5"
-             #name="ngModel">
-    </p>
-    <p>
-      <p>
+    <section class="group-detail-image-wrapper">
+      <img *ngIf="group.image" class="group-detail-image-wrapper-image"
+        [src]="group.image.big | bandImage"
+        [alt]="group.name" />
+      <input class="form-control group-detail-image-url"
+        type="text"
+        name="bigImage"
+        [ngModel]="group.image.big"
+        #name="ngModel" />
+      <img *ngIf="group.image" class="group-detail-image-wrapper-image small"
+        [src]="group.image.small | bandImage"
+        [alt]="group.name" />
+      <input class="form-control group-detail-image-url small"
+        type="text"
+        name="smallImage"
+        [ngModel]="group.image.small"
+        #name="ngModel" />
+    </section>
+    <section class="group-detail-data-wrapper">
+      <p class="group-detail-data-wrapper-row">
+        <label>Nombre: </label>
+        <input class="form-control"
+               type="text"
+               name="name"
+               [ngModel]="group.name"
+               required
+               minlength="5"
+               #name="ngModel">
+      </p>
+      <p class="group-detail-data-wrapper-row">
         <label>Visible: </label>
         <input
           type="checkbox"
@@ -24,8 +38,9 @@
           #name="ngModel"
           [ngModel]="group.visible">
       </p>
-      <p>
-      <button type="submit">Guardar</button>
-    </p>
+      <p class="group-detail-data-wrapper-row">
+        <button type="submit">Guardar</button>
+      </p>
+    </section>
   </form>
 </div>

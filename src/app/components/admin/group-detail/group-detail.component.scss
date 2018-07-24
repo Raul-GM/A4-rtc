@@ -1,5 +1,4 @@
 .group-detail {
-  display: flex;
 }
 .group-detail-image-wrapper {
   flex: 1;
@@ -7,10 +6,24 @@
 }
 .group-detail-image-wrapper-image {
   width: 100%;
+  &.small {
+    height: 70px;
+    width: auto;
+  }
+}
+.group-detail-image-url {
+  width: 100%;
 }
 .group-detail-form {
-  flex: 1;
+  display: flex;
 }
 .group-detail-form-label {
   padding-right: 10px;
+}
+.group-detail-data-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.group-detail-data-wrapper-row {
+  padding: 10px 0;
 }

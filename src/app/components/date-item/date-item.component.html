@@ -1,6 +1,6 @@
 <div [class]="extraclass ? 'date wrapper-' + extraclass : 'date'">
   <a [routerLink]="['/date',date._id]" [class]="extraclass ? 'date-container link-' + extraclass : 'date-container'">
-    <div class="image" [ngStyle]="{'background-image': 'url(' + (date.image[0][1] | bandImage) + ')'}"></div>
+    <div class="image" [ngStyle]="{'background-image': 'url(' + (date.image.big | bandImage) + ')'}"></div>
     <div class="info">
       <p class="date-title-wrapper"><label class="date-title">{{date.name | capitalize}}</label></p>
       <ul [class]="extraclass">

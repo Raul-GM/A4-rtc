@@ -2,7 +2,10 @@ import mongoose from 'mongoose';
 mongoose.set('debug', true);
 let DateSchema = new mongoose.Schema({
   _id: String,
-  image: [],
+  image: {
+    big: String,
+    small: String,
+  },
   name: String,
   visible: Boolean,
   dates: [{

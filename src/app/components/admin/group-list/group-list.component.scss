@@ -5,7 +5,10 @@
 }
 
 .group-list-item-image {
+  background-position: center;
+  background-size: cover;
   border-radius: 50%;
+  background-repeat: no-repeat;
   height: 50px;
   width: 50px;
 }
